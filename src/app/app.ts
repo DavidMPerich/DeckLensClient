@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Nav } from "../layout/nav/nav";
+import { DeckSelector } from "../features/deck-selector/deck-selector";
 
 @Component({
   selector: 'app-root',
-  imports: [Nav],
+  imports: [Nav, DeckSelector],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
