@@ -1,30 +1,29 @@
-<div class="card bg-base-100 w-3/4 mx-auto p-10 mt-24 shadow-xl">
-  <div class="flex flex-col items-center gap-6">
+<div class="flex flex-col items-center gap-6">
 
-    <!-- Immutable Text Area -->
-    <textarea
-      class="textarea textarea-bordered h-64 w-1/2 max-w-2xl resize-none"
-      placeholder="Imported deck list will appear here..."
-      [value]="deck"
-      readonly
-    ></textarea>
+<!-- Immutable Text Area -->
+<textarea
+    class="textarea textarea-bordered h-64 w-1/2 max-w-2xl resize-none"
+    placeholder="Imported deck list will appear here..."
+    [value]="deck"
+    readonly
+></textarea>
 
-    <!-- Import Button -->
-    <button
-      class="btn btn-secondary w-1/2"
-      (click)="importDeck()"
-    >
-      Import Deck
-    </button>
+<!-- Import Button -->
+<button
+    class="btn btn-secondary w-1/2"
+    (click)="importDeck()"
+>
+    Import Deck
+</button>
 
-    <!-- Analyze Button -->
-    <button
-      class="btn btn-primary w-1/2"
-      [disabled]="!deck"
-      (click)="analyze()"
-    >
-      Analyze
-    </button>
+<!-- Analyze Button -->
+<button
+    class="btn btn-primary w-1/2"
+    [disabled]="!deck"
+    (click)="analyze()"
+>
+    Analyze
+</button>
 
-  </div>
 </div>
+

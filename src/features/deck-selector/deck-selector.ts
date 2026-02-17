@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deck-selector',
@@ -8,6 +9,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
   styleUrl: './deck-selector.css',
 })
 export class DeckSelector {
+  private router = inject(Router);
   private clipboard = inject(Clipboard);
   protected deck = '';
 
@@ -18,6 +20,8 @@ export class DeckSelector {
   }
 
   analyze() {
-    // Analyze the deck and display results
+    this.router.navigate(['/metrics'], {
+      state: { deck: this.deck }
+    });
   }
 }
