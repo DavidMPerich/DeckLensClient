@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { Clipboard } from '@angular/cdk/clipboard';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,12 +9,10 @@ import { Router } from '@angular/router';
 })
 export class DeckSelector {
   private router = inject(Router);
-  private clipboard = inject(Clipboard);
   protected deck = '';
 
   async importDeck() {
     const text = await navigator.clipboard.readText();
-
     this.deck = text;
   }
 

@@ -1,1 +1,12 @@
-<p>deck-metrics works!</p>
+<div class="flex flex-col items-center gap-6">
+    <p class="mt-2 text-2xl font-semibold text-center leading-snug
+         text-base-content/80
+         line-clamp-2">{{deckAnalysis()?.commander?.cardName}}</p>
+    <img
+        src="{{deckAnalysis()?.commander?.imageUri}}"
+        class="w-xs rounded-lg shadow"
+        loading="lazy"
+    />
+</div>
+
+
