@@ -1,5 +1,5 @@
-<div class="flex items-center gap-6">
-    <!-- <div class="flex flex-col items-center gap-6">
+<!-- <div class="flex items-center gap-6">
+    <div class="flex flex-col items-center gap-6">
         <p class="mt-2 text-4xl font-semibold text-center leading-snug
             text-base-content/80
             line-clamp-2">Commander</p>
@@ -9,9 +9,33 @@
             loading="lazy"
         />
     </div>
-    <app-metric-dashboard [analysis]="deckAnalysis()!"/> -->
+    <app-metric-dashboard [analysis]="deckAnalysis()!"/>
+</div> -->
+<!-- <div class="flex items-center gap-6">
+    <img src="card-scanner.png" alt="" class="w-1/3">
+    <img
+            src="{{deckAnalysis()?.commander?.imageUri}}"
+            class="w-xs rounded-lg shadow"
+            loading="lazy"
+        />
+</div> -->
+<div class="relative w-1/3">
+
+  <!-- Scanner base -->
+  <img
+    src="card-scanner-2.png"
+    alt=""
+    class="w-full"
+  />
+  <!-- Commander image -->
+  <img
+    src="{{ deckAnalysis()?.commander?.imageUri }}"
+    class="absolute left-1/2 top-[47.5%]
+       -translate-x-1/2 -translate-y-1/2
+       w-[55%] rounded-lg shadow-xl"
+    loading="lazy"
+  />
+  <div class="scan">
+    <div class="fingerprint"></div>
+    </div>
 </div>
-
-
-
-
