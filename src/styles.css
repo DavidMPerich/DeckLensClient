@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+:root {
+  --scan-color: rgba(0, 160, 253, 0.55);
+  --scan-glow: 0, 160, 253;
+}
