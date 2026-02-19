@@ -3,5 +3,6 @@
 
 :root {
   --scan-color: rgba(0, 160, 253, 0.55);
-  --scan-glow: 0, 160, 253;
+  --test-color: rgba(20, 233, 240, 0.55);
+  --scan-glow: 20, 150, 240;
 }
