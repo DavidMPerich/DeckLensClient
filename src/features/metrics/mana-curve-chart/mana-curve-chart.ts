@@ -23,7 +23,7 @@ export class ManaCurveChart implements OnChanges {
       }],
       chart: { 
         type: 'bar', 
-        height: 250, 
+        height: 160,
         toolbar: { 
           show: false 
         } 
@@ -39,7 +39,7 @@ export class ManaCurveChart implements OnChanges {
           text: 'Mana Curve',
           style: {
             fontSize: '12px',
-            fontWeight: 600,
+            fontWeight: 400,
             color: '#FFF'
           } 
         } 
@@ -57,12 +57,7 @@ export class ManaCurveChart implements OnChanges {
         opacity: 0.8
       },
       dataLabels: {
-        enabled: true,
-        style: {
-          fontSize: '8px',
-          fontweight: 100,
-          colors: ['#FFF']
-        }
+        enabled: false
       },
       grid: {
         yaxis: { 
