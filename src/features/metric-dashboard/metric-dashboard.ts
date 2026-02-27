@@ -14,4 +14,5 @@ import { DeckAnalysisDto } from '../../types/deck';
 })
 export class MetricDashboard {
   analysis = input.required<DeckAnalysisDto>();
+  showManaCurve = input(false);
 }

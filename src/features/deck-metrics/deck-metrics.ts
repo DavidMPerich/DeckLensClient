@@ -16,11 +16,21 @@ export class DeckMetrics implements OnInit {
   private router = inject(Router);
   protected deck: string = (history.state.deck as string) ?? '';
   protected deckAnalysis = signal<DeckAnalysisDto | null>(null);
+
+  protected loading = signal(false);
+  protected scanningComplete = signal(false);
+  protected error = signal<string | null>(null);
   
   ngOnInit(): void {
     if (!this.deck) {
       this.router.navigate(['/']);
+      return;
     }
+
+    this.loading.set(true);
+    this.scanningComplete.set(false);
+    this.error.set(null);
+    this.deckAnalysis.set(null);
 
     const deckImportRequestDto : DeckImportRequestDto = {
       cardNames: this.deck
@@ -28,8 +38,20 @@ export class DeckMetrics implements OnInit {
 
     this.deckAnalysisService.analyzeDeck(deckImportRequestDto).subscribe({
       next: response => this.deckAnalysis.set(response),
-      error: error => console.log(error),
-      complete: () => console.log("Deck analysis complete")
+      error: error => {
+        this.error.set('Failed to analyze deck.');
+        this.loading.set(false);
+      },
+      complete: () => {
+        this.loading.set(false);
+        console.log("Deck analysis complete");
+      }
     });
+  }
+
+  protected onScanComplete(event: AnimationEvent) {
+    if (event.animationName?.includes('animate_line')) {
+      this.scanningComplete.set(true);
+    }
   }
 }
