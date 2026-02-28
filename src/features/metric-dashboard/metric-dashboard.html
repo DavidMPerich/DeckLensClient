@@ -1,8 +1,16 @@
 <!-- <div class="card w-3/4 mx-auto p-10 mt-24 border"> -->
 <div class="card relative w-full pt-0">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-    <div class="transition-opacity duration-500" [class.opacity-0]="!showManaCurve()" [class.pointer-events-none]="!showManaCurve()">
-      <app-mana-curve-chart [manaCurveData]="analysis().manaCurve"></app-mana-curve-chart>
+    <!-- <div class="transition-opacity duration-500" [class.opacity-0]="!showManaCurve()" [class.pointer-events-none]="!showManaCurve()"> -->
+    <div
+    class="transition-all duration-500 ease-out"
+    [class.opacity-0]="!showManaCurve()"
+    [class.translate-y-4]="!showManaCurve()"
+    [class.pointer-events-none]="!showManaCurve()"
+    >
+      <app-metric-panel>
+        <app-mana-curve-chart [manaCurveData]="analysis().manaCurve"></app-mana-curve-chart>
+      </app-metric-panel>
     </div>
   </div>
 </div>

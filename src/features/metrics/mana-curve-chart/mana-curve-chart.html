@@ -1,20 +1,16 @@
-<div class="card w-2xs mana-curve-panel">
-  <div class="card-body">
-    @if (chartOptions) {
-      <apx-chart
-        [series]="chartOptions.series"
-        [chart]="chartOptions.chart"
-        [xaxis]="chartOptions.xaxis"
-        [yaxis]="chartOptions.yaxis"
-        [dataLabels]="chartOptions.dataLabels"
-        [title]="chartOptions.title"
-        [plotOptions]="chartOptions.plotOptions"
-        [colors]="chartOptions.colors"
-        [grid]="chartOptions.grid"
-        [fill]="chartOptions.fill">
-      </apx-chart>
-    } @else {
-      <div class="opacity-70">No chart options yet…</div>
-    }
-  </div>
-</div>
+@if (chartOptions) {
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [xaxis]="chartOptions.xaxis"
+    [yaxis]="chartOptions.yaxis"
+    [dataLabels]="chartOptions.dataLabels"
+    [title]="chartOptions.title"
+    [plotOptions]="chartOptions.plotOptions"
+    [colors]="chartOptions.colors"
+    [grid]="chartOptions.grid"
+    [fill]="chartOptions.fill">
+  </apx-chart>
+} @else {
+  <div class="opacity-70">No chart options yet…</div>
+}

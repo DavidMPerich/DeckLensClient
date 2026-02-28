@@ -3,12 +3,14 @@ import { ManaCurveChart } from '../metrics/mana-curve-chart/mana-curve-chart';
 import { ColorDistributionChart } from '../metrics/color-distribution-chart/color-distribution-chart';
 import { CardTypeBreakdownChart } from '../metrics/card-type-breakdown-chart/card-type-breakdown-chart';
 import { DeckAnalysisDto } from '../../types/deck';
+import { MetricPanel } from "../metric-panel/metric-panel";
 
 @Component({
   selector: 'app-metric-dashboard',
   imports: [
-    ManaCurveChart
-  ],
+    ManaCurveChart,
+    MetricPanel
+],
   templateUrl: './metric-dashboard.html',
   styleUrl: './metric-dashboard.css',
 })
