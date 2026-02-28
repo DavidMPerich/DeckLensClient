@@ -57,6 +57,21 @@ export class ManaCurveChart implements OnChanges {
             show: false 
           }
         }
+      },
+      tooltip: {
+        enabled: false
+      },
+      states: {
+        hover: {
+          filter: {
+            type: 'none'
+          }
+        },
+        active: {
+          filter: {
+            type: 'none'
+          }
+        }
       }
     };
   }
