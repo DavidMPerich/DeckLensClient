@@ -35,14 +35,6 @@ export class ManaCurveChart implements OnChanges {
               colors: '#FFF'
             }
         },
-        title: { 
-          text: 'Mana Curve',
-          style: {
-            fontSize: '12px',
-            fontWeight: 400,
-            color: '#FFF'
-          } 
-        } 
       },
       yaxis: { 
         show: false

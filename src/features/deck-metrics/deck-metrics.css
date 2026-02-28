@@ -23,7 +23,7 @@
 
 @keyframes animate_line {
   0% {
-    top: 16%;
+    top: 24%;
     opacity: 0;
   }
 
@@ -37,15 +37,15 @@
   }
 
   92% {
-    top: 16%;
+    top: 24%;
     opacity: 0.75;          
   }
   94% {
-    top: 16%;
+    top: 24%;
     opacity: 0.5;          
   }
   100% {
-    top: 16%;
+    top: 24%;
     opacity: 0;          
   }
 }

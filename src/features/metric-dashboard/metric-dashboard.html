@@ -1,7 +1,5 @@
-<!-- <div class="card w-3/4 mx-auto p-10 mt-24 border"> -->
-<div class="card relative w-full pt-0">
+<!-- <div class="card relative w-full pt-0">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-    <!-- <div class="transition-opacity duration-500" [class.opacity-0]="!showManaCurve()" [class.pointer-events-none]="!showManaCurve()"> -->
     <div
     class="transition-all duration-500 ease-out"
     [class.opacity-0]="!showManaCurve()"
@@ -13,4 +11,28 @@
       </app-metric-panel>
     </div>
   </div>
+</div> -->
+
+<div class="metric-grid metric-grid--enter">
+  @for (i of [0,1,2,3,4,5]; track i) {
+    <div class="metric-slot">
+      <app-metric-panel class="w-2xs">
+        <div panelHeader class="text-sm font-semibold opacity-80">
+          @if (i === 0) { Mana Curve } @else { Metric {{ i + 1 }} }
+        </div>
+
+        @if (i === 0) {
+          <app-mana-curve-chart [manaCurveData]="analysis()!.manaCurve"></app-mana-curve-chart>
+        } @else {
+          <div class="opacity-70 text-sm">Coming soon…</div>
+          <div class="mt-3 space-y-2">
+            <div class="h-3 rounded bg-white/10 animate-pulse"></div>
+            <div class="h-3 rounded bg-white/10 animate-pulse w-5/6"></div>
+            <div class="h-3 rounded bg-white/10 animate-pulse w-2/3"></div>
+            <div class="h-20 rounded bg-white/10 animate-pulse"></div>
+          </div>
+        }
+      </app-metric-panel>
+    </div>
+  }
 </div>
