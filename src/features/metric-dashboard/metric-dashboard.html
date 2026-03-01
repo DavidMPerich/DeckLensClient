@@ -1,22 +1,9 @@
-<!-- <div class="card relative w-full pt-0">
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-    <div
-    class="transition-all duration-500 ease-out"
-    [class.opacity-0]="!showManaCurve()"
-    [class.translate-y-4]="!showManaCurve()"
-    [class.pointer-events-none]="!showManaCurve()"
-    >
-      <app-metric-panel>
-        <app-mana-curve-chart [manaCurveData]="analysis().manaCurve"></app-mana-curve-chart>
-      </app-metric-panel>
-    </div>
-  </div>
-</div> -->
 
 <div class="metric-grid metric-grid--enter">
   @for (i of [0,1,2,3,4,5]; track i) {
     <div class="metric-slot">
-      <app-metric-panel class="w-2xs">
+      <app-metric-panel class="w-2xs" (pointerenter)="hoverSound.play()">
+        <audio #hoverSound src="sounds/clink.ogg" preload="auto"></audio>
         <div panelHeader class="text-sm font-semibold opacity-80">
           @if (i === 0) { Mana Curve } @else { Metric {{ i + 1 }} }
         </div>
