@@ -1,7 +1,7 @@
 <div class="metric-grid metric-grid--enter">
   @for (i of [0,1,2,3,4,5]; track i) {
     <div class="metric-slot">
-      <app-metric-panel class="w-2xs" (pointerenter)="hoverSound.play()">
+      <app-metric-panel class="w-2xs" (pointerenter)="hoverSound.play()" (click)="navigate()">
         <audio #hoverSound src="sounds/clink.ogg" preload="auto"></audio>
         <div panelHeader class="text-sm font-semibold opacity-80">
           @if (i === 0) { Mana Curve } 
