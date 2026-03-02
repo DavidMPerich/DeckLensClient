@@ -30,11 +30,15 @@ export class ManaCurveChart implements OnChanges {
       },
       xaxis: { 
         categories: cmcs,
-          labels: {
-            style: {
-              colors: '#FFF'
-            }
+        labels: {
+          style: {
+            colors: '#FFFFFF',
+            fontWeight: 400
+          }
         },
+        crosshairs: {
+          show: false
+        }
       },
       yaxis: { 
         show: false
@@ -54,13 +58,17 @@ export class ManaCurveChart implements OnChanges {
       grid: {
         yaxis: { 
           lines: { 
-            show: false 
+            show: true
           }
         }
       },
       tooltip: {
-        enabled: false
-      }
+        enabled: true,
+        theme: 'dark',
+        marker: { show: false },
+        x: { show: false },
+      },
+      colors: ['#8B5CF6']
     };
   }
 }
