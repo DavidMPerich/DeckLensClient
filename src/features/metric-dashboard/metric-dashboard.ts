@@ -9,6 +9,7 @@ import { MetricPanel } from "../metric-panel/metric-panel";
   selector: 'app-metric-dashboard',
   imports: [
     ManaCurveChart,
+    ColorDistributionChart,
     MetricPanel
 ],
   templateUrl: './metric-dashboard.html',

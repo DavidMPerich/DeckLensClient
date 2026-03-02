@@ -4,12 +4,17 @@
       <app-metric-panel class="w-2xs" (pointerenter)="hoverSound.play()">
         <audio #hoverSound src="sounds/clink.ogg" preload="auto"></audio>
         <div panelHeader class="text-sm font-semibold opacity-80">
-          @if (i === 0) { Mana Curve } @else { Metric {{ i + 1 }} }
+          @if (i === 0) { Mana Curve } 
+          @else if (i === 1) { Color Distribution }
+          @else { Metric {{ i + 1 }} }
         </div>
 
         @if (i === 0) {
           <app-mana-curve-chart [manaCurveData]="analysis()!.manaCurve"></app-mana-curve-chart>
-        } @else {
+        } @else if (i === 1) {
+          <app-color-distribution-chart [colorDistribution]="analysis()!.colorDistribution" ></app-color-distribution-chart>
+        } 
+        @else {
           <div class="opacity-70 text-sm">Coming soon…</div>
           <div class="mt-3 space-y-2">
             <div class="h-3 rounded bg-white/10 animate-pulse"></div>
