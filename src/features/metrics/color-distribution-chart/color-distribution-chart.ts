@@ -92,18 +92,18 @@ export class ColorDistributionChart {
         },
       },
       colors: nonZero.map(x => colorKeyToHex(x.k)),
-      states: {
-        hover: {
-          filter: {
-            type: 'none'
-          }
-        },
-        active: {
-          filter: {
-            type: 'none'
-          }
-        }
-      }
+      // states: {
+      //   hover: {
+      //     filter: {
+      //       type: 'none'
+      //     }
+      //   },
+      //   active: {
+      //     filter: {
+      //       type: 'none'
+      //     }
+      //   }
+      // }
     };
   }
 

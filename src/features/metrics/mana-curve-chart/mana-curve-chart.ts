@@ -45,7 +45,7 @@ export class ManaCurveChart implements OnChanges {
       },
       plotOptions: { 
         bar: { 
-          columnWidth: '45%', 
+          columnWidth: '50%', 
           borderRadius: 4
         }
       },
