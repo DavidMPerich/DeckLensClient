@@ -1,9 +1,4 @@
 .scan {
-    position: absolute;
-    top: 0;
-    left: 22%;
-    width: 56%;
-    height: 12px;
     background: 
         linear-gradient(
             to bottom,
@@ -23,7 +18,7 @@
 
 @keyframes animate_line {
   0% {
-    top: 24%;
+    top: 14%;
     opacity: 0;
   }
 
@@ -32,20 +27,20 @@
   }
 
   50% {
-    top: 78%;
+    top: 82%;
     opacity: 1;         
   }
 
   92% {
-    top: 24%;
+    top: 14%;
     opacity: 0.75;          
   }
   94% {
-    top: 24%;
+    top: 14%;
     opacity: 0.5;          
   }
   100% {
-    top: 24%;
+    top: 14%;
     opacity: 0;          
   }
 }

@@ -4,10 +4,13 @@ import { DeckAnalysisService } from '../../core/services/deck-analysis-service';
 import { DeckAnalysisDto, DeckImportRequestDto } from '../../types/deck';
 import { Observable } from 'rxjs';
 import { MetricDashboard } from "../metric-dashboard/metric-dashboard";
+import { MetricPanel } from '../metric-panel/metric-panel';
 
 @Component({
   selector: 'app-deck-metrics',
-  imports: [MetricDashboard],
+  imports: [
+    MetricPanel
+  ],
   templateUrl: './deck-metrics.html',
   styleUrl: './deck-metrics.css',
 })
