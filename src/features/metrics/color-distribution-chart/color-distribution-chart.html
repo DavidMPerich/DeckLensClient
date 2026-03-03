@@ -1,13 +1,21 @@
-@if (chartOptions) {
-    <apx-chart
-        [series]="chartOptions.series"
-        [chart]="chartOptions.chart"
-        [labels]="chartOptions.labels"
-        [stroke]="chartOptions.stroke"
-        [legend]="chartOptions.legend"
-        [dataLabels]="chartOptions.dataLabels"
-        [tooltip]="chartOptions.tooltip"
-        [plotOptions]="chartOptions.plotOptions"
-        [colors]="chartOptions.colors">
-    </apx-chart>
-}
+<div class="donut-wrapper">
+    @if (chartOptions) {
+        <apx-chart
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [labels]="chartOptions.labels"
+            [stroke]="chartOptions.stroke"
+            [legend]="chartOptions.legend"
+            [dataLabels]="chartOptions.dataLabels"
+            [tooltip]="chartOptions.tooltip"
+            [plotOptions]="chartOptions.plotOptions"
+            [colors]="chartOptions.colors"
+            [states]="chartOptions.states">
+        </apx-chart>
+    }
+
+    @if (currentManaIcon()) {
+        <img [src]="currentManaIcon()" class="mana-center">
+    }
+</div>
+

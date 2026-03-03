@@ -1,0 +1,15 @@
+.donut-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.mana-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 35px;
+  height: 35px;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+}

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
 @Component({
@@ -8,8 +8,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
   styleUrl: './color-distribution-chart.css',
 })
 export class ColorDistributionChart {
-    @Input({ required: true }) colorDistribution!: Record<string, number>;
-
+  @Input({ required: true }) colorDistribution!: Record<string, number>;
+  currentManaIcon = signal<string>('mana-symbols/mana.png');
   chartOptions: any;
 
   ngOnChanges(): void {
@@ -30,7 +30,6 @@ export class ColorDistributionChart {
     const nonZero = sortedKeys
       .map((k, i) => ({ k, v: series[i] }))
       .filter(x => x.v > 0);
-
     const labels = nonZero.map(x => prettyColorLabel(x.k));
     const finalSeries = nonZero.map(x => x.v);
 
@@ -40,7 +39,16 @@ export class ColorDistributionChart {
       chart: {
         type: 'donut',
         height: 171,
-        toolbar: { show: false }
+        toolbar: { show: false },
+        events: {
+          dataPointMouseEnter: (_e: any, ctx: any, config: any) => {
+            const label = ctx.w.globals.labels[config.dataPointIndex];
+            this.currentManaIcon.set(this.getManaIcon(label));
+          },
+          dataPointMouseLeave: () => {
+            this.currentManaIcon.set('mana-symbols/mana.png');
+          }
+        }
       },
       legend: {
         show: false
@@ -64,6 +72,7 @@ export class ColorDistributionChart {
               show: true,
               total: {
                 show: true,
+                label: '',
                 fontWeight: 800,
                 color: ['rgba(255,255,255, 0.8)'],
                 formatter: (w: any) => {
@@ -74,7 +83,7 @@ export class ColorDistributionChart {
               value: {
                 show: true,
                 fontWeight: 600,
-                offsetY: -1,
+                offsetY: 25,
                 color: ['rgba(255,255,255, 0.8)'],
                 formatter: (val: number) => `${Math.round(val)}`
               },
@@ -82,8 +91,32 @@ export class ColorDistributionChart {
           },
         },
       },
-      colors: nonZero.map(x => colorKeyToHex(x.k))
+      colors: nonZero.map(x => colorKeyToHex(x.k)),
+      states: {
+        hover: {
+          filter: {
+            type: 'none'
+          }
+        },
+        active: {
+          filter: {
+            type: 'none'
+          }
+        }
+      }
     };
+  }
+
+  getManaIcon(label: string): string {
+    switch (label) {
+      case 'Green': return 'mana-symbols/forest.png';
+      case 'Red': return 'mana-symbols/mountain.png';
+      case 'Blue': return 'mana-symbols/island.png';
+      case 'Black': return 'mana-symbols/swamp.png';
+      case 'White': return 'mana-symbols/plains.png';
+      case 'Colorless': return 'mana-symbols/colorless.png';
+      default: return 'mana-symbols/mana.png';
+    }
   }
 }
 
@@ -105,11 +138,13 @@ function colorKeyToHex(k: string): string {
   switch (k) {
     case 'W': return '#f8f4e6';
     case 'U': return '#2b6cb0';
-    case 'B': return '#2d3748';
+    case 'B': return '#0D0F0F';
     case 'R': return '#c53030';
     case 'G': return '#2f855a';
     case 'C':
-    case 'Colorless': return '#a0aec0';
+    case 'Colorless': return '#CAC5C0';
     default: return '#805ad5'; 
   }
 }
+
+
