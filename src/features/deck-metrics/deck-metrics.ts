@@ -5,12 +5,14 @@ import { DeckAnalysisDto, DeckImportRequestDto } from '../../types/deck';
 import { Observable } from 'rxjs';
 import { MetricDashboard } from "../metric-dashboard/metric-dashboard";
 import { MetricPanel } from '../metric-panel/metric-panel';
+import { ColorDistributionChart } from "../metrics/color-distribution-chart/color-distribution-chart";
 
 @Component({
   selector: 'app-deck-metrics',
   imports: [
-    MetricPanel
-  ],
+    MetricPanel,
+    ColorDistributionChart
+],
   templateUrl: './deck-metrics.html',
   styleUrl: './deck-metrics.css',
 })

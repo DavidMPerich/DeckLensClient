@@ -142,7 +142,7 @@ function colorKeyToHex(k: string): string {
     case 'R': return '#c53030';
     case 'G': return '#2f855a';
     case 'C':
-    case 'Colorless': return '#CAC5C0';
+    case 'Colorless': return '#7E7D80';
     default: return '#805ad5'; 
   }
 }

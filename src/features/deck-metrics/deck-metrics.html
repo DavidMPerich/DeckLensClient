@@ -34,14 +34,20 @@
                         xl:grid-cols-2
                         2xl:grid-cols-3 ">
                 @for (i of [0,1,2,3,4,5]; track i) {
-                <app-metric-panel class="max-w-58 min-w-58 h-55 shrink-0">
-                    <div class="mt-3 space-y-2">
-                    <div class="h-3 rounded bg-white/10 animate-pulse"></div>
-                    <div class="h-3 rounded bg-white/10 animate-pulse w-5/6"></div>
-                    <div class="h-3 rounded bg-white/10 animate-pulse w-2/3"></div>
-                    <div class="h-20 rounded bg-white/10 animate-pulse"></div>
-                    </div>
-                </app-metric-panel>
+
+                    @if (i === 0) {
+                        <app-metric-panel><app-color-distribution-chart [colorDistribution]="deckAnalysis()!.colorDistribution"></app-color-distribution-chart></app-metric-panel>
+                    }
+                    @else {
+                        <app-metric-panel class="max-w-58 min-w-58 h-55 shrink-0">
+                            <div class="mt-3 space-y-2">
+                            <div class="h-3 rounded bg-white/10 animate-pulse"></div>
+                            <div class="h-3 rounded bg-white/10 animate-pulse w-5/6"></div>
+                            <div class="h-3 rounded bg-white/10 animate-pulse w-2/3"></div>
+                            <div class="h-20 rounded bg-white/10 animate-pulse"></div>
+                            </div>
+                        </app-metric-panel>
+                    }
                 }
             </div>
         </div>    
