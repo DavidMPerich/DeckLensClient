@@ -26,29 +26,25 @@
         </div>
     </section>
     <!-- Metrics -->
-    <section class="card lg:w-2/3 w-full grid place-items-center">
-        <div class="overflow-x-hidden overflow-y-auto lg:max-h-112 pr-2">
+    <section class="card lg:w-2/3 w-full grid justify-items-center">
+        <div class="overflow-x-hidden overflow-y-auto lg:max-h-140 pr-2">
             <div
-                class="grid gap-x-6 gap-y-2
-                        lg:grid-cols-1
-                        xl:grid-cols-2
-                        2xl:grid-cols-3 ">
-                @for (i of [0,1,2,3,4,5]; track i) {
-
-                    @if (i === 0) {
-                        <app-metric-panel><app-color-distribution-chart [colorDistribution]="deckAnalysis()!.colorDistribution"></app-color-distribution-chart></app-metric-panel>
-                    }
-                    @else {
-                        <app-metric-panel class="max-w-58 min-w-58 h-55 shrink-0">
-                            <div class="mt-3 space-y-2">
-                            <div class="h-3 rounded bg-white/10 animate-pulse"></div>
-                            <div class="h-3 rounded bg-white/10 animate-pulse w-5/6"></div>
-                            <div class="h-3 rounded bg-white/10 animate-pulse w-2/3"></div>
-                            <div class="h-20 rounded bg-white/10 animate-pulse"></div>
-                            </div>
-                        </app-metric-panel>
-                    }
-                }
+                class="grid gap-x-6 gap-y-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 ">
+                        @for (i of [0,1,2,3,4,5]; track i) {
+                            <app-metric-panel class="max-w-56 min-w-56 h-55 shrink-0" (pointerenter)="hoverSound.play()">
+                                <audio #hoverSound src="sounds/clink.ogg" preload="auto"></audio>
+                                @if (scanningComplete()) {
+                                    <app-color-distribution-chart class="metric" [style.animation-delay.ms]="i * 200" [colorDistribution]="deckAnalysis()!.colorDistribution"></app-color-distribution-chart>
+                                } @else {
+                                    <div class="mt-3 space-y-2">
+                                    <div class="h-3 rounded bg-white/10 animate-pulse"></div>
+                                    <div class="h-3 rounded bg-white/10 animate-pulse w-5/6"></div>
+                                    <div class="h-3 rounded bg-white/10 animate-pulse w-2/3"></div>
+                                    <div class="h-20 rounded bg-white/10 animate-pulse"></div>
+                                    </div>
+                                }
+                            </app-metric-panel>
+                        }
             </div>
         </div>    
     </section>

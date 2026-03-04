@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeckAnalysisService } from '../../core/services/deck-analysis-service';
 import { DeckAnalysisDto, DeckImportRequestDto } from '../../types/deck';
@@ -25,6 +25,7 @@ export class DeckMetrics implements OnInit {
   protected loading = signal(false);
   protected scanningComplete = signal(false);
   protected error = signal<string | null>(null);
+  @ViewChild('clink') clink!: ElementRef<HTMLAudioElement>;
   
   ngOnInit(): void {
     if (!this.deck) {
@@ -58,5 +59,12 @@ export class DeckMetrics implements OnInit {
     if (event.animationName?.includes('animate_line')) {
       this.scanningComplete.set(true);
     }
+  }
+
+  playHoverSound() {
+    const audio = this.clink.nativeElement;
+    audio.currentTime = 0;
+    audio.volume = .01;
+    audio.play().catch(() => {});
   }
 }

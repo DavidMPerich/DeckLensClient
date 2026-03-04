@@ -38,7 +38,7 @@ export class ColorDistributionChart {
       labels,
       chart: {
         type: 'donut',
-        height: 171,
+        height: 150,
         toolbar: { show: false },
         events: {
           dataPointMouseEnter: (_e: any, ctx: any, config: any) => {
@@ -91,19 +91,7 @@ export class ColorDistributionChart {
           },
         },
       },
-      colors: nonZero.map(x => colorKeyToHex(x.k)),
-      // states: {
-      //   hover: {
-      //     filter: {
-      //       type: 'none'
-      //     }
-      //   },
-      //   active: {
-      //     filter: {
-      //       type: 'none'
-      //     }
-      //   }
-      // }
+      colors: nonZero.map(x => colorKeyToHex(x.k))
     };
   }
 
