@@ -64,7 +64,6 @@ export class DeckMetrics implements OnInit {
   playHoverSound() {
     const audio = this.clink.nativeElement;
     audio.currentTime = 0;
-    audio.volume = .01;
     audio.play().catch(() => {});
   }
 }
