@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-metric-dashboard',
   imports: [
-    ManaCurveChart,
-    ColorDistributionChart,
     MetricPanel
 ],
   templateUrl: './metric-dashboard.html',
