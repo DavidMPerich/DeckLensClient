@@ -38,7 +38,7 @@ export class ColorDistributionChart {
       labels,
       chart: {
         type: 'donut',
-        height: 150,
+        height: 149,
         toolbar: { show: false },
         events: {
           dataPointMouseEnter: (_e: any, ctx: any, config: any) => {

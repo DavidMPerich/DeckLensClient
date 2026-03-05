@@ -6,12 +6,14 @@ import { Observable } from 'rxjs';
 import { MetricDashboard } from "../metric-dashboard/metric-dashboard";
 import { MetricPanel } from '../metric-panel/metric-panel';
 import { ColorDistributionChart } from "../metrics/color-distribution-chart/color-distribution-chart";
+import { ManaCurveChart } from "../metrics/mana-curve-chart/mana-curve-chart";
 
 @Component({
   selector: 'app-deck-metrics',
   imports: [
     MetricPanel,
-    ColorDistributionChart
+    ColorDistributionChart,
+    ManaCurveChart
 ],
   templateUrl: './deck-metrics.html',
   styleUrl: './deck-metrics.css',
@@ -19,13 +21,15 @@ import { ColorDistributionChart } from "../metrics/color-distribution-chart/colo
 export class DeckMetrics implements OnInit {
   private deckAnalysisService = inject(DeckAnalysisService);
   private router = inject(Router);
+
   protected deck: string = (history.state.deck as string) ?? '';
   protected deckAnalysis = signal<DeckAnalysisDto | null>(null);
-
   protected loading = signal(false);
   protected scanningComplete = signal(false);
   protected error = signal<string | null>(null);
+
   @ViewChild('clink') clink!: ElementRef<HTMLAudioElement>;
+  private lastClink = 0;
   
   ngOnInit(): void {
     if (!this.deck) {
@@ -62,6 +66,10 @@ export class DeckMetrics implements OnInit {
   }
 
   playHoverSound() {
+    const now = performance.now();
+    if (now - this.lastClink < 80) return;
+    this.lastClink = now;
+
     const audio = this.clink.nativeElement;
     audio.currentTime = 0;
     audio.play().catch(() => {});

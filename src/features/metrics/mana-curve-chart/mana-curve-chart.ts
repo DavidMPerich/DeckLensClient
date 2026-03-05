@@ -23,7 +23,7 @@ export class ManaCurveChart implements OnChanges {
       }],
       chart: { 
         type: 'bar', 
-        height: 160,
+        height: 137,
         toolbar: { 
           show: false 
         } 
