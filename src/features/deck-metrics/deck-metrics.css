@@ -16,19 +16,6 @@
     animation-fill-mode: both;
 }
 
-/* .metric {
-  opacity: 0;
-  transform: translateY(150px);
-  animation: materialize 0.8s ease-out forwards;
-}
-
-@keyframes materialize {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-} */
-
 .metric {
   opacity: 0;
   animation: scanReveal 1.4s ease-out forwards;

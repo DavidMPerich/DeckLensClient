@@ -7,6 +7,7 @@ import { MetricDashboard } from "../metric-dashboard/metric-dashboard";
 import { MetricPanel } from '../metric-panel/metric-panel';
 import { ColorDistributionChart } from "../metrics/color-distribution-chart/color-distribution-chart";
 import { ManaCurveChart } from "../metrics/mana-curve-chart/mana-curve-chart";
+import { MetricType } from '../../types/metricTypes';
 
 @Component({
   selector: 'app-deck-metrics',
@@ -27,9 +28,18 @@ export class DeckMetrics implements OnInit {
   protected loading = signal(false);
   protected scanningComplete = signal(false);
   protected error = signal<string | null>(null);
+  metricSlots = signal<MetricType[]>([
+    MetricType.ManaCurve,
+    MetricType.ColorDistribution,
+    MetricType.Stub,
+    MetricType.Stub,
+    MetricType.Stub,
+    MetricType.Stub
+  ]);
 
   @ViewChild('clink') clink!: ElementRef<HTMLAudioElement>;
   private lastClink = 0;
+  
   
   ngOnInit(): void {
     if (!this.deck) {

@@ -4,10 +4,6 @@
     </div>
 }
 
-<!-- @if(scanningComplete()) {
-    <app-metric-dashboard [analysis]="deckAnalysis()!"/>
-} -->
-
 <div class="flex flex-col min-w-50 lg:flex-row xl:max-w-7xl">
     <!-- Commander -->
     <section class="card lg:w-1/3 pb-10 lg:pb-0">
@@ -32,44 +28,26 @@
             <div class="grid gap-x-6 gap-y-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 ">
                 @if (scanningComplete())
                 {
-                    <app-metric-panel class="max-w-56 min-w-56 h-55 shrink-0" (pointerenter)="playHoverSound()">
-                        <app-mana-curve-chart class="metric" [manaCurveData]="deckAnalysis()!.manaCurve"></app-mana-curve-chart>
-                    </app-metric-panel>
-                    <app-metric-panel class="max-w-56 min-w-56 h-55 shrink-0" (pointerenter)="playHoverSound()">
-                        <app-color-distribution-chart class="metric" [style.animation-delay.ms]="200" [colorDistribution]="deckAnalysis()!.colorDistribution"></app-color-distribution-chart>
-                    </app-metric-panel>
-                    <app-metric-panel class="max-w-56 min-w-56 h-55 shrink-0" (pointerenter)="playHoverSound()">
-                        <div class="mt-3 space-y-2">
-                            <div class="h-3 rounded bg-white/10 animate-pulse"></div>
-                            <div class="h-3 rounded bg-white/10 animate-pulse w-5/6"></div>
-                            <div class="h-3 rounded bg-white/10 animate-pulse w-2/3"></div>
-                            <div class="h-20 rounded bg-white/10 animate-pulse"></div>
-                        </div>
-                    </app-metric-panel>
-                    <app-metric-panel class="max-w-56 min-w-56 h-55 shrink-0" (pointerenter)="playHoverSound()">
-                        <div class="mt-3 space-y-2">
-                            <div class="h-3 rounded bg-white/10 animate-pulse"></div>
-                            <div class="h-3 rounded bg-white/10 animate-pulse w-5/6"></div>
-                            <div class="h-3 rounded bg-white/10 animate-pulse w-2/3"></div>
-                            <div class="h-20 rounded bg-white/10 animate-pulse"></div>
-                        </div>
-                    </app-metric-panel>
-                    <app-metric-panel class="max-w-56 min-w-56 h-55 shrink-0" (pointerenter)="playHoverSound()">
-                        <div class="mt-3 space-y-2">
-                            <div class="h-3 rounded bg-white/10 animate-pulse"></div>
-                            <div class="h-3 rounded bg-white/10 animate-pulse w-5/6"></div>
-                            <div class="h-3 rounded bg-white/10 animate-pulse w-2/3"></div>
-                            <div class="h-20 rounded bg-white/10 animate-pulse"></div>
-                        </div>
-                    </app-metric-panel>
-                    <app-metric-panel class="max-w-56 min-w-56 h-55 shrink-0" (pointerenter)="playHoverSound()">
-                        <div class="mt-3 space-y-2">
-                            <div class="h-3 rounded bg-white/10 animate-pulse"></div>
-                            <div class="h-3 rounded bg-white/10 animate-pulse w-5/6"></div>
-                            <div class="h-3 rounded bg-white/10 animate-pulse w-2/3"></div>
-                            <div class="h-20 rounded bg-white/10 animate-pulse"></div>
-                        </div>
-                    </app-metric-panel>
+                    @for (metric of metricSlots(); track $index) {
+                        <app-metric-panel class="max-w-56 min-w-56 h-55 shrink-0" (pointerenter)="playHoverSound()">
+                            @switch (metric) {
+                                @case ('manaCurve') {
+                                    <app-mana-curve-chart class="metric" [manaCurveData]="deckAnalysis()!.manaCurve"></app-mana-curve-chart>
+                                }
+                                @case ('colorDistribution') {
+                                    <app-color-distribution-chart class="metric" [style.animation-delay.ms]="200" [colorDistribution]="deckAnalysis()!.colorDistribution"></app-color-distribution-chart>
+                                }
+                                @default {
+                                    <div class="mt-3 space-y-2">
+                                        <div class="h-3 rounded bg-white/10 animate-pulse"></div>
+                                        <div class="h-3 rounded bg-white/10 animate-pulse w-5/6"></div>
+                                        <div class="h-3 rounded bg-white/10 animate-pulse w-2/3"></div>
+                                        <div class="h-20 rounded bg-white/10 animate-pulse"></div>
+                                    </div>
+                                }
+                            }
+                        </app-metric-panel>
+                    }
                 } @else {
                     @for (i of [0,1,2,3,4,5]; track i) {
                         <app-metric-panel class="max-w-56 min-w-56 h-55 shrink-0" (pointerenter)="playHoverSound()">
