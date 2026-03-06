@@ -30,6 +30,13 @@
                 {
                     @for (metric of metricSlots(); track $index) {
                         <app-metric-panel class="max-w-56 min-w-56 h-55 shrink-0" (pointerenter)="playHoverSound()">
+                            <div panelTitle>
+                            @switch (metric) {
+                                @case ('manaCurve') { Mana Curve }
+                                @case ('colorDistribution') { Color Distribution }
+                                @default { Coming Soon }
+                            }
+                            </div>
                             @switch (metric) {
                                 @case ('manaCurve') {
                                     <app-mana-curve-chart class="metric" [manaCurveData]="deckAnalysis()!.manaCurve"></app-mana-curve-chart>

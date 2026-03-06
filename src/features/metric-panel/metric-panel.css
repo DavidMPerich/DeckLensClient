@@ -3,7 +3,14 @@
   width: 100%;
 }
 
+.card-body {
+  position: relative;
+  z-index: 1;
+  padding-top: 35px;
+}
+
 .metric-panel {
+    position: relative;
     overflow : hidden;
 
     background-color: rgba(255, 255, 255, 0.06);
@@ -16,6 +23,7 @@
 }
 
 .metric-panel::before {
+  z-index: 0;
   content: '';
   position: absolute;
   inset: 0;
@@ -48,6 +56,7 @@
 
 /* Glint layer (idle) */
 .metric-panel::after {
+  z-index: 0;
   content: '';
   position: absolute;
   top: -50%;
@@ -71,6 +80,20 @@
 .metric-panel:hover::after {
   opacity: 1;
   animation: glint 0.5s ease-out forwards;
+}
+
+.metric-title {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  z-index: 2;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.85;
+
+  pointer-events: none; /* title won't steal clicks/hover */
+  user-select: none;
 }
 
 /* Glint sweep */
