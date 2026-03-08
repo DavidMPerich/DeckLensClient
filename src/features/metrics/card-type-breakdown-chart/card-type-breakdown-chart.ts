@@ -84,7 +84,7 @@ export class CardTypeBreakdownChart {
       tooltip: {
         enabled: true,
         custom: ({ seriesIndex, w }: any) => {
-          return `<div class="px-2">${w.globals.labels[seriesIndex]}</div>`;
+          return `<div class="px-4 py-1">${w.globals.labels[seriesIndex]}</div>`;
         }
       },
       stroke: {

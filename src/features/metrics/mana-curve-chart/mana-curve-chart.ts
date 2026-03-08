@@ -64,11 +64,25 @@ export class ManaCurveChart implements OnChanges {
       },
       tooltip: {
         enabled: true,
-        theme: 'dark',
-        marker: { show: false },
-        x: { show: false }
+        custom: ({ series, seriesIndex, dataPointIndex }: any) => {
+          const value = series[seriesIndex][dataPointIndex];
+          return `
+            <div style="
+              padding: 5px 14px;
+              border-radius: 12px;
+              background: rgba(16, 18, 30, 0.6);
+              color: rgba(255, 255, 255, 0.92);
+              font-size: 12px;
+              font-weight: 700;
+              white-space: nowrap;
+              backdrop-filter: blur(6px);
+            ">
+              Cards: ${value}
+            </div>
+          `;
+        }
       },
-      colors: ['#8B5CF6']
+    colors: ['#8B5CF6']
     };
   }
 }

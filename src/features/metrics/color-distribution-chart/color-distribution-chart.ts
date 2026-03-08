@@ -33,6 +33,15 @@ export class ColorDistributionChart {
     const labels = nonZero.map(x => prettyColorLabel(x.k));
     const finalSeries = nonZero.map(x => x.v);
 
+    const colorToLand: Record<string, string> = {
+      Red: 'Mountain',
+      Blue: 'Island',
+      Black: 'Swamp',
+      White: 'Plains',
+      Green: 'Forest',
+      Colorless: 'Wastes'
+    };
+
     this.chartOptions = {
       series: finalSeries,
       labels,
@@ -61,7 +70,13 @@ export class ColorDistributionChart {
         formatter: (val: number) => `${val.toFixed(0)}%`,
       },
       tooltip: {
-        enabled: false
+        enabled: true,
+        custom: ({ seriesIndex, w }: any) => {
+          const color = w.globals.labels[seriesIndex];
+          const land = colorToLand[color] ?? color;
+
+          return `<div class="px-4 py-1">${land}</div>`;
+        }
       },
       plotOptions: {
         pie: {

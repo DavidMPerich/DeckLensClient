@@ -6,3 +6,22 @@
   --test-color: rgba(20, 233, 240, 0.55);
   --scan-glow: 20, 150, 240;
 }
+
+.apexcharts-tooltip {
+  background: rgba(14, 14, 17, 0.3) !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: none !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+.apexcharts-tooltip-title {
+  display: none !important;
+}
+
+.apexcharts-tooltip-marker {
+  display: none !important;
+}
