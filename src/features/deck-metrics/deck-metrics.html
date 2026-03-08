@@ -10,14 +10,17 @@
         <div class="relative w-full max-w-61 lg:min-w-80 lg:max-w-80 mx-auto">
             <img src="card-scanner-2.png" alt="" class="w-full h-auto block select-none"/>
             @if (deckAnalysis()) {
+                <audio #woosh src="sounds/woosh.m4a" preload="auto"></audio>
                 <img
                     src="{{ deckAnalysis()?.commander?.imageUri }}"
                     class="commander absolute left-[49.9%] top-[15%]
                     -translate-x-1/2
                     w-[68%] rounded-xl select-none"
                     loading="lazy"
+                    (animationstart)="playWooshSound()"
                 />
-                <div class="scan absolute h-[3%] w-[70%] left-[15%] right-[22%] top-[28%]" (animationend)="onScanComplete($event)"></div>
+                <audio #scanSound src="sounds/scan.m4a" preload="auto"></audio>
+                <div class="scan absolute h-[3%] w-[70%] left-[15%] right-[22%] top-[28%]" (animationstart)="playScanSound()" (animationend)="onScanComplete($event)"></div>
             }
         </div>
     </section>

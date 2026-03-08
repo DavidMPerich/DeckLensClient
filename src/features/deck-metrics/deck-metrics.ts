@@ -42,6 +42,10 @@ export class DeckMetrics implements OnInit {
   ]);
 
   @ViewChild('clink') clink!: ElementRef<HTMLAudioElement>;
+  @ViewChild('scanSound') scanSound!: ElementRef<HTMLAudioElement>;
+  @ViewChild('woosh') woosh!: ElementRef<HTMLAudioElement>;
+
+
   private lastClink = 0;
   
   
@@ -94,6 +98,18 @@ export class DeckMetrics implements OnInit {
     this.lastClink = now;
 
     const audio = this.clink.nativeElement;
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+  }
+
+  playWooshSound() {
+    const audio = this.woosh.nativeElement;
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+  }
+
+  playScanSound() {
+    const audio = this.scanSound.nativeElement;
     audio.currentTime = 0;
     audio.play().catch(() => {});
   }
