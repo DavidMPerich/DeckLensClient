@@ -70,12 +70,11 @@ export class ManaCurveChart implements OnChanges {
             <div style="
               padding: 5px 14px;
               border-radius: 12px;
-              background: rgba(16, 18, 30, 0.6);
+              background: rgba(0, 0, 0, 0.1);
               color: rgba(255, 255, 255, 0.92);
               font-size: 12px;
               font-weight: 700;
               white-space: nowrap;
-              backdrop-filter: blur(6px);
             ">
               Cards: ${value}
             </div>
