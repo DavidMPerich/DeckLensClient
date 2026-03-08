@@ -66,7 +66,7 @@ export class ManaCurveChart implements OnChanges {
         enabled: true,
         theme: 'dark',
         marker: { show: false },
-        x: { show: false },
+        x: { show: false }
       },
       colors: ['#8B5CF6']
     };

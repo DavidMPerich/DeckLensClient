@@ -8,13 +8,15 @@ import { MetricPanel } from '../metric-panel/metric-panel';
 import { ColorDistributionChart } from "../metrics/color-distribution-chart/color-distribution-chart";
 import { ManaCurveChart } from "../metrics/mana-curve-chart/mana-curve-chart";
 import { MetricType } from '../../types/metricTypes';
+import { CardTypeBreakdownChart } from "../metrics/card-type-breakdown-chart/card-type-breakdown-chart";
 
 @Component({
   selector: 'app-deck-metrics',
   imports: [
     MetricPanel,
     ColorDistributionChart,
-    ManaCurveChart
+    ManaCurveChart,
+    CardTypeBreakdownChart
 ],
   templateUrl: './deck-metrics.html',
   styleUrl: './deck-metrics.css',
@@ -34,7 +36,7 @@ export class DeckMetrics implements OnInit {
     MetricType.Stub,
     MetricType.Stub,
     MetricType.Stub,
-    MetricType.Stub
+    MetricType.CardTypeBreakdown
   ]);
 
   @ViewChild('clink') clink!: ElementRef<HTMLAudioElement>;

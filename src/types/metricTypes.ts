@@ -1,5 +1,6 @@
 export enum MetricType {
     Stub = 'stub',
     ManaCurve = 'manaCurve',
-    ColorDistribution = 'colorDistribution'
+    ColorDistribution = 'colorDistribution',
+    CardTypeBreakdown = 'cardTypeBreakdown'
 }

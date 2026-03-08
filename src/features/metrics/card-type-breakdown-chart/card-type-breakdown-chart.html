@@ -1,1 +1,19 @@
-<p>card-type-breakdown-chart works!</p>
+<div class="donut-wrapper">
+  @if (chartOptions) {
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [labels]="chartOptions.labels"
+      [legend]="chartOptions.legend"
+      [dataLabels]="chartOptions.dataLabels"
+      [plotOptions]="chartOptions.plotOptions"
+      [tooltip]="chartOptions.tooltip"
+      [stroke]="chartOptions.stroke"
+      [states]="chartOptions.states"
+      [colors]="chartOptions.colors">
+    </apx-chart>
+  }
+  @if (currentCardTypeIcon()) {
+        <img [src]="currentCardTypeIcon()" class="type-center">
+    }
+</div>

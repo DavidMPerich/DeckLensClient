@@ -34,6 +34,7 @@
                             @switch (metric) {
                                 @case ('manaCurve') { Mana Curve }
                                 @case ('colorDistribution') { Color Distribution }
+                                @case ('cardTypeBreakdown') { Card Type Breakdown }
                                 @default { Coming Soon }
                             }
                             </div>
@@ -43,6 +44,9 @@
                                 }
                                 @case ('colorDistribution') {
                                     <app-color-distribution-chart class="metric" [style.animation-delay.ms]="200" [colorDistribution]="deckAnalysis()!.colorDistribution"></app-color-distribution-chart>
+                                }
+                                @case ('cardTypeBreakdown') {
+                                    <app-card-type-breakdown-chart class="metric" [style.animation-delay.ms]="400" [cardTypeBreakdown]="deckAnalysis()!.cardTypeBreakdown"></app-card-type-breakdown-chart>
                                 }
                                 @default {
                                     <div class="mt-3 space-y-2">
