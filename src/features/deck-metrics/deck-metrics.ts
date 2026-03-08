@@ -9,6 +9,7 @@ import { ColorDistributionChart } from "../metrics/color-distribution-chart/colo
 import { ManaCurveChart } from "../metrics/mana-curve-chart/mana-curve-chart";
 import { MetricType } from '../../types/metricTypes';
 import { CardTypeBreakdownChart } from "../metrics/card-type-breakdown-chart/card-type-breakdown-chart";
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-deck-metrics',
@@ -16,7 +17,8 @@ import { CardTypeBreakdownChart } from "../metrics/card-type-breakdown-chart/car
     MetricPanel,
     ColorDistributionChart,
     ManaCurveChart,
-    CardTypeBreakdownChart
+    CardTypeBreakdownChart,
+    DecimalPipe
 ],
   templateUrl: './deck-metrics.html',
   styleUrl: './deck-metrics.css',
@@ -34,7 +36,7 @@ export class DeckMetrics implements OnInit {
     MetricType.ManaCurve,
     MetricType.ColorDistribution,
     MetricType.Stub,
-    MetricType.Stub,
+    MetricType.AverageCMC,
     MetricType.Stub,
     MetricType.CardTypeBreakdown
   ]);
@@ -69,6 +71,15 @@ export class DeckMetrics implements OnInit {
         console.log("Deck analysis complete");
       }
     });
+  }
+
+  get averageCmcBand(): string {
+    const cmc = this.deckAnalysis()?.averageCmc ?? 0;
+
+    if (cmc < 2.5) return 'Fast';
+    if (cmc < 3.5) return 'Midrange';
+    if (cmc < 4.5) return 'Heavy';
+    return 'Very Heavy';
   }
 
   protected onScanComplete(event: AnimationEvent) {

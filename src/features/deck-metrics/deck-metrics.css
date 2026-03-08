@@ -21,6 +21,37 @@
   animation: scanReveal 1.4s ease-out forwards;
 }
 
+.cmc-panel {
+  height: 149px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cmc-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-6px);
+}
+
+.cmc-value {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 0 8px rgba(255,255,255,0.18);
+}
+
+.cmc-label {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.02em;
+}
+
 @keyframes scanReveal {
   to {
     opacity: 1;
