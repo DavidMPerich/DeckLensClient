@@ -2,8 +2,6 @@ import { Component, ElementRef, inject, OnInit, signal, ViewChild } from '@angul
 import { Router } from '@angular/router';
 import { DeckAnalysisService } from '../../core/services/deck-analysis-service';
 import { DeckAnalysisDto, DeckImportRequestDto } from '../../types/deck';
-import { Observable } from 'rxjs';
-import { MetricDashboard } from "../metric-dashboard/metric-dashboard";
 import { MetricPanel } from '../metric-panel/metric-panel';
 import { ColorDistributionChart } from "../metrics/color-distribution-chart/color-distribution-chart";
 import { ManaCurveChart } from "../metrics/mana-curve-chart/mana-curve-chart";
