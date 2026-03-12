@@ -10,7 +10,7 @@ import { CardTypeBreakdownChart } from "../metric-preview/card-type-breakdown-ch
 import { DecimalPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-deck-metrics',
+  selector: 'app-deck-analysis-dashboard',
   imports: [
     MetricPanel,
     ColorDistributionChart,
@@ -18,10 +18,10 @@ import { DecimalPipe } from '@angular/common';
     CardTypeBreakdownChart,
     DecimalPipe
 ],
-  templateUrl: './deck-metrics.html',
-  styleUrl: './deck-metrics.css',
+  templateUrl: './deck-analysis-dashboard.html',
+  styleUrl: './deck-analysis-dashboard.css'
 })
-export class DeckMetrics implements OnInit {
+export class DeckAnalysisDashboard implements OnInit {
   private deckAnalysisService = inject(DeckAnalysisService);
   private router = inject(Router);
 

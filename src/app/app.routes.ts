@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { DeckSelector } from '../features/deck-selector/deck-selector';
-import { DeckMetrics } from '../features/deck-metrics/deck-metrics';
+import { DeckAnalysisDashboard } from '../features/deck-analysis-dashboard/deck-analysis-dashboard';
 
 export const routes: Routes = [
     { path: '', component: DeckSelector},
-    { path: 'metrics', component: DeckMetrics },
+    { path: 'metrics', component: DeckAnalysisDashboard },
     { path: '**', redirectTo: '' }
 ];
