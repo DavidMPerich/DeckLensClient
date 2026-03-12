@@ -2,11 +2,11 @@ import { Component, ElementRef, inject, OnInit, signal, ViewChild } from '@angul
 import { Router } from '@angular/router';
 import { DeckAnalysisService } from '../../core/services/deck-analysis-service';
 import { DeckAnalysisDto, DeckImportRequestDto } from '../../types/deck';
-import { MetricPanel } from '../metric-panel/metric-panel';
-import { ColorDistributionChart } from "../metrics/color-distribution-chart/color-distribution-chart";
-import { ManaCurveChart } from "../metrics/mana-curve-chart/mana-curve-chart";
+import { MetricPanel } from '../components/metric-panel/metric-panel';
+import { ColorDistributionChart } from "../metric-previews/color-distribution-chart/color-distribution-chart";
+import { ManaCurveChart } from "../metric-previews/mana-curve-chart/mana-curve-chart";
 import { MetricType } from '../../types/metricTypes';
-import { CardTypeBreakdownChart } from "../metrics/card-type-breakdown-chart/card-type-breakdown-chart";
+import { CardTypeBreakdownChart } from "../metric-previews/card-type-breakdown-chart/card-type-breakdown-chart";
 import { DecimalPipe } from '@angular/common';
 
 @Component({
