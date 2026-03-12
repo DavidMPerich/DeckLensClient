@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { DeckAnalysisService } from '../../core/services/deck-analysis-service';
 import { DeckAnalysisDto, DeckImportRequestDto } from '../../types/deck';
 import { MetricPanel } from '../components/metric-panel/metric-panel';
-import { ColorDistributionChart } from "../metric-previews/color-distribution-chart/color-distribution-chart";
-import { ManaCurveChart } from "../metric-previews/mana-curve-chart/mana-curve-chart";
+import { ColorDistributionChart } from "../metric-preview/color-distribution-chart/color-distribution-chart";
+import { ManaCurveChart } from "../metric-preview/mana-curve-chart/mana-curve-chart";
 import { MetricType } from '../../types/metricTypes';
-import { CardTypeBreakdownChart } from "../metric-previews/card-type-breakdown-chart/card-type-breakdown-chart";
+import { CardTypeBreakdownChart } from "../metric-preview/card-type-breakdown-chart/card-type-breakdown-chart";
 import { DecimalPipe } from '@angular/common';
 
 @Component({
