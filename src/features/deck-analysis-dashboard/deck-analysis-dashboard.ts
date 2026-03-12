@@ -2,7 +2,7 @@ import { Component, ElementRef, inject, OnInit, signal, ViewChild } from '@angul
 import { Router } from '@angular/router';
 import { DeckAnalysisService } from '../../core/services/deck-analysis-service';
 import { DeckAnalysisDto, DeckImportRequestDto } from '../../types/deck';
-import { MetricPanel } from '../components/metric-panel/metric-panel';
+import { MetricPanel } from '../component/metric-panel/metric-panel';
 import { ColorDistributionChart } from "../metric-preview/color-distribution-chart/color-distribution-chart";
 import { ManaCurveChart } from "../metric-preview/mana-curve-chart/mana-curve-chart";
 import { MetricType } from '../../types/metricTypes';
