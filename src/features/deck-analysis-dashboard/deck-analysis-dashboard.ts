@@ -25,6 +25,21 @@ export class DeckAnalysisDashboard implements OnInit {
   private deckAnalysisService = inject(DeckAnalysisService);
   private router = inject(Router);
 
+  private metricRoutes: Record<MetricType, string> = {
+    [MetricType.Stub]: 'coming-soon',
+    [MetricType.ManaCurve]: 'mana-curve',
+    [MetricType.ColorDistribution]: 'color-distribution',
+    [MetricType.CardTypeBreakdown]: 'card-types',
+    [MetricType.AverageCMC]: 'average-cmc'
+  };
+
+  navigate(metric: MetricType) {
+    const route = this.metricRoutes[metric];
+    if (route) {
+      this.router.navigate(['/deck-analysis', route]);
+    }
+  }
+
   protected deck: string = (history.state.deck as string) ?? '';
   protected deckAnalysis = signal<DeckAnalysisDto | null>(null);
   protected loading = signal(false);

@@ -19,7 +19,7 @@ export class DeckSelector {
   }
 
   analyze() {
-    this.router.navigate(['/metrics'], {
+    this.router.navigate(['/deck-analysis'], {
       state: { deck: this.deck }
     });
   }
