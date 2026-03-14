@@ -1,1 +1,50 @@
-<p>mana-curve-detailed works!</p>
+<div class="card metric-panel">
+    <section class="flex flex-col gap-6 w-full min-h-full">
+        <div class="flex flex-wrap justify-center gap-4 w-full">
+            <div class="flex-1 basis-55 min-w-55 max-w-[320px]">
+                <div class="metric-spot">
+                    Metric 1
+                </div>
+            </div>
+            <div class="flex-1 basis-55 min-w-55 max-w-[320px]">
+                <div class="metric-spot">
+                    Metric 2
+                </div>
+            </div>
+            <div class="flex-1 basis-55 min-w-55 max-w-[320px]">
+                <div class="metric-spot">
+                    Metric 3
+                </div>
+            </div>
+            <div class="flex-1 basis-55 min-w-55 max-w-[320px]">
+                <div class="metric-spot">
+                    Metric 4
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center items-stretch w-full">
+            <div class="w-full max-w-275 min-w-0">
+            <app-mana-curve-chart [manaCurveData]="this.analysis!.manaCurve"></app-mana-curve-chart>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 w-full">
+            <div class="flex-1 basis-65 min-w-65 max-w-105">
+                <div class="metric-spot">
+                    Insight 1
+                </div>
+            </div>
+            <div class="flex-1 basis-65 min-w-65 max-w-105">
+                <div class="metric-spot">
+                    Insight 2
+                </div>
+            </div>
+            <div class="flex-1 basis-65 min-w-65 max-w-105">
+                <div class="metric-spot">
+                    Insight 3
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -36,7 +36,9 @@ export class DeckAnalysisDashboard implements OnInit {
   navigate(metric: MetricType) {
     const route = this.metricRoutes[metric];
     if (route) {
-      this.router.navigate(['/deck-analysis', route]);
+      this.router.navigate(['/deck-analysis', route], {
+        state: { analysis: this.deckAnalysis() }
+      });
     }
   }
 
