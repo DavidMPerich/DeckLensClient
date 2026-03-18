@@ -23,7 +23,7 @@ export class ManaCurveChart {
       }],
       chart: { 
         type: 'bar', 
-        height: 137,
+        height: 400,
         toolbar: { 
           show: false 
         } 
@@ -45,7 +45,7 @@ export class ManaCurveChart {
       },
       plotOptions: { 
         bar: { 
-          columnWidth: '50%', 
+          columnWidth: '35%', 
           borderRadius: 4
         }
       },
