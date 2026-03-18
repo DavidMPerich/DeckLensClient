@@ -1,52 +1,27 @@
 <div class="card metric-panel h-full overflow-y-auto">
-    <div class="w-full box-border px-4 pt-10 pb-10">
-        <section class="flex flex-col gap-6 w-full">
-            <div class="flex flex-wrap justify-center gap-4 w-full">
-                <div class="flex-1 basis-55 min-w-55 max-w-[320px]">
-                    <div class="metric-spot">
-                        Metric 1
-                    </div>
-                </div>
-                <div class="flex-1 basis-55 min-w-55 max-w-[320px]">
-                    <div class="metric-spot">
-                        Metric 2
-                    </div>
-                </div>
-                <div class="flex-1 basis-55 min-w-55 max-w-[320px]">
-                    <div class="metric-spot">
-                        Metric 3
-                    </div>
-                </div>
-                <div class="flex-1 basis-55 min-w-55 max-w-[320px]">
-                    <div class="metric-spot">
-                        Metric 4
-                    </div>
-                </div>
+    <div class="w-full box-border px-18 py-14">
+        <section class="w-full mx-auto flex flex-col gap-6">
+
+            <!-- Top metrics -->
+            <div class="flex flex-wrap justify-between gap-y-4 w-full">
+                <div class="metric-spot metric-spot--top">Metric 1</div>
+                <div class="metric-spot metric-spot--top">Metric 2</div>
+                <div class="metric-spot metric-spot--top">Metric 3</div>
+                <div class="metric-spot metric-spot--top">Metric 4</div>
             </div>
 
-            <div class="flex justify-center items-stretch w-full">
-                <div class="w-full max-w-275 min-w-0">
-                    <app-mana-curve-chart [manaCurveData]="analysis!.manaCurve"></app-mana-curve-chart>
-                </div>
+            <!-- Chart -->
+            <div class="w-full min-w-0">
+                <app-mana-curve-chart [manaCurveData]="analysis!.manaCurve"></app-mana-curve-chart>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-4 w-full">
-                <div class="flex-1 basis-65 min-w-65 max-w-105">
-                    <div class="metric-spot">
-                        Insight 1
-                    </div>
-                </div>
-                <div class="flex-1 basis-65 min-w-65 max-w-105">
-                    <div class="metric-spot">
-                        Insight 2
-                    </div>
-                </div>
-                <div class="flex-1 basis-65 min-w-65 max-w-105">
-                    <div class="metric-spot">
-                        Insight 3
-                    </div>
-                </div>
+            <!-- Bottom insights -->
+            <div class="flex flex-wrap justify-between gap-y-4 w-full">
+                <div class="metric-spot metric-spot--bottom">Insight 1</div>
+                <div class="metric-spot metric-spot--bottom">Insight 2</div>
+                <div class="metric-spot metric-spot--bottom">Insight 3</div>
             </div>
+
         </section>
     </div>
 </div>
