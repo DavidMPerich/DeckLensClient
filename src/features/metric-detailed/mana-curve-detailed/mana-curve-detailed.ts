@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManaCurveChart } from '../mana-curve-chart/mana-curve-chart';
-import { DeckAnalysisDto } from '../../../types/deck';
+import { DeckAnalysisDto, ManaCurveAnalysisDto } from '../../../types/deck';
 
 @Component({
   selector: 'app-mana-curve-detailed',
@@ -11,10 +11,11 @@ import { DeckAnalysisDto } from '../../../types/deck';
   styleUrl: './mana-curve-detailed.css',
 })
 export class ManaCurveDetailed implements OnInit {
-  analysis!: DeckAnalysisDto;
+  manaCurveData: ManaCurveAnalysisDto | null = null;
 
   ngOnInit(): void {
-    this.analysis = history.state.analysis;
+    this.manaCurveData = history.state.data;
+    console.log("Testing curve data");
   }
 
 }

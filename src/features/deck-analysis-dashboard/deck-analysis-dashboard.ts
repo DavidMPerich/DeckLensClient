@@ -35,10 +35,29 @@ export class DeckAnalysisDashboard implements OnInit {
 
   navigate(metric: MetricType) {
     const route = this.metricRoutes[metric];
-    if (route) {
-      this.router.navigate(['/deck-analysis', route], {
-        state: { analysis: this.deckAnalysis() }
-      });
+    const analysis = this.deckAnalysis();
+
+    if (!route || !analysis) return;
+
+    const metricState = this.buildMetricState(metric, analysis);
+
+    this.router.navigate(['/deck-analysis', route], {
+      state: metricState
+    });
+  }
+
+  private buildMetricState(metric: MetricType, analysis: DeckAnalysisDto) {
+    switch (metric) {
+      case 'manaCurve':
+        return {
+          metric: 'manaCurve',
+          data: analysis.manaCurveAnalysis
+        };
+      default:
+        return {
+          metric,
+          data: null
+        };
     }
   }
 
@@ -49,11 +68,11 @@ export class DeckAnalysisDashboard implements OnInit {
   protected error = signal<string | null>(null);
   metricSlots = signal<MetricType[]>([
     MetricType.ManaCurve,
-    MetricType.ColorDistribution,
     MetricType.Stub,
-    MetricType.AverageCMC,
     MetricType.Stub,
-    MetricType.CardTypeBreakdown
+    MetricType.Stub,
+    MetricType.Stub,
+    MetricType.Stub
   ]);
 
   @ViewChild('clink') clink!: ElementRef<HTMLAudioElement>;
@@ -90,15 +109,6 @@ export class DeckAnalysisDashboard implements OnInit {
         console.log("Deck analysis complete");
       }
     });
-  }
-
-  get averageCmcBand(): string {
-    const cmc = this.deckAnalysis()?.averageCmc ?? 0;
-
-    if (cmc < 2.5) return 'Fast';
-    if (cmc < 3.5) return 'Midrange';
-    if (cmc < 4.5) return 'Heavy';
-    return 'Very Heavy';
   }
 
   protected onScanComplete(event: AnimationEvent) {

@@ -21,8 +21,15 @@ export type DeckImportRequestDto = {
 export type DeckAnalysisDto = {
     commander: CardDto;
     totalCards: number;
+    summary: DeckSummaryDto;
+    manaCurveAnalysis: ManaCurveAnalysisDto;
+}
+
+export type DeckSummaryDto = {
+    manaCurvePreview: Record<number, number>;
+}
+
+export type ManaCurveAnalysisDto = {
     averageCmc: number;
-    manaCurve: Record<number, number>;
-    colorDistribution: Record<string, number>;
-    cardTypeBreakdown: Record<string, number>;
+    byCmc: Record<number, number>;
 }

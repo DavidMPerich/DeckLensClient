@@ -36,31 +36,12 @@
                             <div panelTitle>
                             @switch (metric) {
                                 @case ('manaCurve') { Mana Curve }
-                                @case ('colorDistribution') { Color Distribution }
-                                @case ('cardTypeBreakdown') { Card Type Breakdown }
-                                @case ('averageCmc') { Average CMC }
                                 @default { Coming Soon }
                             }
                             </div>
                             @switch (metric) {
                                 @case ('manaCurve') {
-                                    <app-mana-curve-chart class="metric" [manaCurveData]="deckAnalysis()!.manaCurve"></app-mana-curve-chart>
-                                }
-                                @case ('colorDistribution') {
-                                    <app-color-distribution-chart class="metric" [style.animation-delay.ms]="200" [colorDistribution]="deckAnalysis()!.colorDistribution"></app-color-distribution-chart>
-                                }
-                                @case ('averageCmc') {
-                                    <div class="cmc-panel">
-                                        <div class="cmc-stack">
-                                            <div class="cmc-value metric" [style.animation-delay.ms]="800">
-                                            {{ deckAnalysis()?.averageCmc | number:'1.1-1' }}
-                                            </div>
-                                            <div class="cmc-label">{{ averageCmcBand }}</div>
-                                        </div>
-                                    </div>
-                                }
-                                @case ('cardTypeBreakdown') {
-                                    <app-card-type-breakdown-chart class="metric" [style.animation-delay.ms]="1000" [cardTypeBreakdown]="deckAnalysis()!.cardTypeBreakdown"></app-card-type-breakdown-chart>
+                                    <app-mana-curve-chart class="metric" [manaCurveData]="deckAnalysis()!.summary.manaCurvePreview"></app-mana-curve-chart>
                                 }
                                 @default {
                                     <div class="mt-3 space-y-2">
