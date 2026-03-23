@@ -161,13 +161,13 @@ export class ManaCurveDetailed implements OnInit {
     if (breakdown === 'byType') {
       const typeMap: Record<string, string> = {
         Creature: '#8B5CF6',
-        Instant: '#38BDF8',
-        Sorcery: '#F97316',
-        Enchantment: '#22C55E',
+        Instant: '#F87171',
+        Sorcery: '#60A5FA',
+        Enchantment: '#F8FAFC',
         Artifact: '#A1A1AA',
         Planeswalker: '#EC4899',
-        Battle: '#FACC15',
-        Other: '#64748B'
+        Battle: '#22C55E',
+        Other: '#FACC15'
       };
 
       return seriesNames.map(name => typeMap[name] ?? '#8B5CF6');
