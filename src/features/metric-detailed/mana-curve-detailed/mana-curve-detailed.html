@@ -10,9 +10,56 @@
                 <div class="metric-spot metric-spot--top">Metric 4</div>
             </div>
 
+            <!-- Breakdown selector -->
+            <div class="flex flex-wrap items-center gap-3">
+                <span class="text-sm text-white/70 mr-2">Breakdown:</span>
+
+                <label class="breakdown-option">
+                    <input
+                        type="radio"
+                        name="manaCurveBreakdown"
+                        value="byCmc"
+                        [checked]="selectedBreakdown() === 'byCmc'"
+                        (change)="selectedBreakdown.set('byCmc')" />
+                    <span>CMC</span>
+                </label>
+
+                <label class="breakdown-option">
+                    <input
+                        type="radio"
+                        name="manaCurveBreakdown"
+                        value="byColor"
+                        [checked]="selectedBreakdown() === 'byColor'"
+                        (change)="selectedBreakdown.set('byColor')" />
+                    <span>Color</span>
+                </label>
+
+                <label class="breakdown-option">
+                    <input
+                        type="radio"
+                        name="manaCurveBreakdown"
+                        value="byType"
+                        [checked]="selectedBreakdown() === 'byType'"
+                        (change)="selectedBreakdown.set('byType')" />
+                    <span>Type</span>
+                </label>
+
+                <label class="breakdown-option">
+                    <input
+                        type="radio"
+                        name="manaCurveBreakdown"
+                        value="byCreatureSplit"
+                        [checked]="selectedBreakdown() === 'byCreatureSplit'"
+                        (change)="selectedBreakdown.set('byCreatureSplit')" />
+                    <span>Creature / Non-Creature</span>
+                </label>
+            </div>
+
             <!-- Chart -->
             <div class="w-full min-w-0">
-                <app-mana-curve-chart [manaCurveData]="manaCurveData!.byCmc"></app-mana-curve-chart>
+                <apx-chart>
+
+                </apx-chart>
             </div>
 
             <!-- Bottom insights -->

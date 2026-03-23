@@ -19,17 +19,41 @@ export type DeckImportRequestDto = {
 }
 
 export type DeckAnalysisDto = {
-    commander: CardDto;
-    totalCards: number;
     summary: DeckSummaryDto;
     manaCurveAnalysis: ManaCurveAnalysisDto;
 }
 
 export type DeckSummaryDto = {
+    commander: CardDto;
+    totalCards: number;
     manaCurvePreview: Record<number, number>;
 }
 
 export type ManaCurveAnalysisDto = {
+    metrics: ManaCurveMetricsDto;
+    charts: ManaCurveChartBreakdownsDto;
+}
+
+export type ManaCurveMetricsDto = {
     averageCmc: number;
-    byCmc: Record<number, number>;
+    medianCmc: number;
+    curvePeak: number;
+    earlyGameDensity: number;
+}
+
+export type ManaCurveChartBreakdownsDto = {
+    byCmc: ManaCurveChartDto;
+    byColor: ManaCurveChartDto;
+    byType: ManaCurveChartDto;
+    byCreatureSplit: ManaCurveChartDto;
+}
+
+export type ManaCurveChartDto = {
+    categories: number[];
+    series: StackedSeriesDto[];
+}
+
+export type StackedSeriesDto = {
+    name: string;
+    data: number[];
 }
