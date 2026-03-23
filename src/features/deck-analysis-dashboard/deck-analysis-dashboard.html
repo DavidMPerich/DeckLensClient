@@ -12,7 +12,7 @@
             @if (deckAnalysis()) {
                 <audio #woosh src="sounds/woosh.m4a" preload="auto"></audio>
                 <img
-                    src="{{ deckAnalysis()?.commander?.imageUri }}"
+                    src="{{ deckAnalysis()?.summary?.commander?.imageUri }}"
                     class="commander absolute left-[49.9%] top-[15%]
                     -translate-x-1/2
                     w-[68%] rounded-xl select-none"

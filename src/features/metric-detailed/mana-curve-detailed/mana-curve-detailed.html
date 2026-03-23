@@ -57,9 +57,20 @@
 
             <!-- Chart -->
             <div class="w-full min-w-0">
-                <apx-chart>
-
-                </apx-chart>
+                @if (chartOptions(); as options) {
+                    <apx-chart
+                        [series]="options.series"
+                        [chart]="options.chart"
+                        [xaxis]="options.xaxis"
+                        [yaxis]="options.yaxis"
+                        [plotOptions]="options.plotOptions"
+                        [fill]="options.fill"
+                        [dataLabels]="options.dataLabels"
+                        [grid]="options.grid"
+                        [tooltip]="options.tooltip"
+                        [colors]="options.colors">
+                    </apx-chart>
+                }
             </div>
 
             <!-- Bottom insights -->
